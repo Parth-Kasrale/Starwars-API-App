@@ -11,6 +11,7 @@ function App() {
     setIsLoading(true);
     const response = await fetch("https://swapi.dev/api/films/");
     const data = await response.json();
+
     const transformedMovies = data.results.map((movieData) => {
       return {
         id: movieData.episode_id,
@@ -30,7 +31,7 @@ function App() {
       </section>
       <section>
         {!isLoading && movies.length > 0 && <MoviesList movies={movies} />}
-        {!isLoading && movies.length === 0 && <p>Found No Movies.</p>}
+        {!isLoading && movies.length === 0 && <p>Found no movies.</p>}
         {isLoading && <p>Loading...</p>}
       </section>
     </React.Fragment>
